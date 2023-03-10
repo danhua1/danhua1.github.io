@@ -101,11 +101,7 @@ theme: melody
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-# deploy:
-#   type: ''
-
-  deploy:
+deploy:
   type: git
   repo: https://github.com/danhua1.github.io
-  # example, https://github.com/hexojs/hexojs.github.io
   branch: main

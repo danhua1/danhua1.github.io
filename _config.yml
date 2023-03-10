@@ -103,5 +103,5 @@ theme: melody
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/danhua1.github.io
+  repo: https://github.com/danhua1/danhua1.github.io
   branch: main

@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="redux"><meta name="keywords" content="react,redux"><meta name="author" content="sunshine"><meta name="copyright" content="sunshine"><title>redux | 繁华落尽</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://v1.hitokoto.cn/?encode=js&amp;charset=utf-8&amp;select=.footer_custom_text" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '6.2.0'
+} </script><meta name="generator" content="Hexo 6.2.0"></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#redux%E4%BD%BF%E7%94%A8%E8%A7%84%E5%88%99"><span class="toc-number">1.</span> <span class="toc-text">redux使用规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">redux基础概念</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">sunshine</div><div class="author-info__description text-center">我希望有个如你一般的人，如山间清爽的风，如古城温暖的光，从清晨到夜晚，由山间到书房，只要最后是你，就好。-----《从你的全世界路过》</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">11</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">10</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">10</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://autoload.github.io/css/images/banner_sky.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">繁华落尽</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">总览</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">redux</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-05</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/react/">react</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/react/redux/">redux</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="redux使用规则"><a href="#redux使用规则" class="headerlink" title="redux使用规则"></a>redux使用规则</h2><ol>
+<li>使用configureStore创建 Redux store</li>
+<li>为 React 应用程序组件提供 Redux store<ol>
+<li>使用 React-Redux <Provider> 组件包裹你的 <App /></li>
+<li>传递 Redux store 如 <Provider store={store}></li>
+</ol>
+</li>
+<li>使用 createSlice 创建 Redux “slice” 切片<ol>
+<li>使用字符串名称、初始状态和命名的 reducer 函数调用“createSlice”</li>
+<li>Reducer 函数可以使用 Immer 来“改变”状态</li>
+<li>导出生成的 slice reducer 和 action creators</li>
+</ol>
+</li>
+<li>在 React 组件中使用 React-Redux useSelector&#x2F;useDispatch 钩子<ol>
+<li>使用 useSelector 钩子从 store 中读取数据</li>
+<li>使用 useDispatch 钩子获取 dispatch 函数，并根据需要 dispatch actions</li>
+</ol>
+</li>
+</ol>
+<h2 id="redux基础概念"><a href="#redux基础概念" class="headerlink" title="redux基础概念"></a>redux基础概念</h2><ol>
+<li>Redux 是什么？<br>Redux 是一个使用叫做“action”的事件来管理和更新应用状态的模式和工具库 它以集中式Store（centralized store）的方式对整个应用中使用的状态进行集中管理，其规则确保状态只能以可预测的方式更新。</li>
+<li>为什么要使用 Redux？<br>Redux 提供的模式和工具使您更容易理解应用程序中的状态何时、何地、为什么以及如何更新，以及当这些更改发生时您的应用程序逻辑将如何表现. Redux 指导您编写可预测和可测试的代码，这有助于让您确信您的应用程序将按预期工作</li>
+<li>我什么时候应该使用 Redux？<br>redux有利有弊端，因为是一个新型的数据管理模式，这就需要去学习他本身的一些思想，这样就增加了学习成本。如果你的项目比较小的，那么并不需要引用redux，<br>如有以下的情况的话，那么建议使用redux<ol>
+<li>在应用的大量地方，都存在大量的状态</li>
+<li>应用状态会随着时间的推移而频繁更新</li>
+<li>更新该状态的逻辑可能很复杂</li>
+<li>中型和大型代码量的应用，很多人协同开发</li>
+</ol>
+</li>
+<li>Redux 术语和概念<ol>
+<li>State 管理<br>单向数据流（one-way data flow）<ol>
+<li>用 state 来描述应用程序在特定时间点的状况</li>
+<li>基于 state 来渲染出 View</li>
+<li>当发生某些事情时（例如用户单击按钮），state 会根据发生的事情进行更新，生成新的 state</li>
+<li>基于新的 state 重新渲染 View<br>解决多个组件共享一个state；可以把共享的state抽取出来放置到组件树之外的地方，这样的话，组件树中任意一个组件就可以直接访问到共享的state。这样就使得view和state之间变的独立。<br>Redux 背后的基本思想：应用中使用集中式的全局状态来管理，并明确更新状态的模式，以便让代码具有可预测性。</li>
+</ol>
+</li>
+<li>不可变性 Immutability<br>对象和数组都是可变的。虽然引用的地址没有变化，但是实际的指向值确变化了<br>如果想要不可变的方式来更新，代码必需先复制原来的 object&#x2F;array，然后更新它的复制体。JavaScript array&#x2F;object 的展开运算符（spread operator）可以实现这个目的<br>Redux 期望所有状态更新都是使用不可变的方式。</li>
+<li>术语<ol>
+<li>Action<br>action 是一个具有 type 字段的普通 JavaScript 对象。你可以将 action 视为描述应用程序中发生了什么的事件.</li>
+<li>Action Creator<br>action creator 是一个创建并返回一个 action 对象的函数。它的作用是让你不必每次都手动编写 action 对象</li>
+<li>Reducer<br>reducer 是一个函数，接收当前的 state 和一个 action 对象，必要时决定如何更新状态，并返回新状态。函数签名是：(state, action) &#x3D;&gt; newState。 你可以将 reducer 视为一个事件监听器，它根据接收到的 action（事件）类型处理事件。<br>reducer和Array.reduce()有些类似，都是接收上一个结果和当前项进行计算获取到一个最新的值。不同是的是Array.reduce()会立即执行。Redux 时，它会在您正在运行的应用程序的整个生命周期内发生。</li>
+<li>Store<br>当前 Redux 应用的状态存在于一个名为 store 的对象中。<br>store 是通过传入一个 reducer 来创建的，并且有一个名为 getState 的方法，它返回当前状态值</li>
+<li>Dispatch<br>更新 state 的唯一方法是调用 store.dispatch() 并传入一个 action 对象。</li>
+<li>Selector<br>Selector 函数可以从 store 状态树中提取指定的片段。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">sunshine</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://danhua1.github.io/2021/01/05/redux/">https://danhua1.github.io/2021/01/05/redux/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://danhua1.github.io">繁华落尽</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/react/">react</a><a class="post-meta__tags" href="/tags/redux/">redux</a></div><div class="post-qr-code"><div class="post-qr-code-item"><img class="post-qr-code__img"><div class="post-qr-code__desc">暂时无</div></div></div><div class="addthis_inline_share_toolbox pull-right"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined" async></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/12/05/reactHook/"><i class="fa fa-chevron-left">  </i><span>react Hook学习</span></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://autoload.github.io/css/images/banner_sky.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2021 - 2024 By sunshine</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">hitokoto</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
